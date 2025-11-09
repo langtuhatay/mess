@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messenger - Chat App</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+      <div class="auth-container">
+        <div class="auth-box">
+          <div class="logo">💬</div>
+          <h1>Messenger</h1>
+          <p class="subtitle">Kết nối với bạn bè</p>
+
+          <div class="form-group">
+            <input type="email" id="loginEmail" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <input type="password" id="loginPassword" placeholder="Mật khẩu" />
+          </div>
+          <button class="btn btn-primary" id="loginBtn">Đăng nhập</button>
+
+          <div class="divider">hoặc</div>
+
+          <button class="btn btn-secondary" id="gotoSignup">
+            Tạo tài khoản mới
+          </button>
+
+          <div class="demo-info">
+            <p>Tài khoản demo: admin@messenger.com / admin123</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Screen -->
+    <div id="signupScreen" class="screen">
+      <div class="auth-container signup-bg">
+        <div class="auth-box">
+          <div class="logo">📝</div>
+          <h1>Đăng ký</h1>
+          <p class="subtitle">Nhanh chóng và dễ dàng</p>
+
+          <div class="form-group">
+            <input type="text" id="signupName" placeholder="Họ và tên" />
+          </div>
+          <div class="form-group">
+            <input type="email" id="signupEmail" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="signupPassword"
+              placeholder="Mật khẩu mới"
+            />
+          </div>
+
+          <button class="btn btn-primary" id="signupBtn">Đăng ký</button>
+          <button class="btn btn-text" id="gotoLogin">Đã có tài khoản?</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chatScreen" class="screen">
+      <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="sidebar-header">
+            <h2>💬 Messenger</h2>
+            <div class="header-actions">
+              <button class="icon-btn" id="logoutBtn" title="Đăng xuất">
+                🚪
+              </button>
+            </div>
+          </div>
+
+          <div class="user-profile">
+            <div class="user-avatar" id="currentUserAvatar">👤</div>
+            <div class="user-info">
+              <h3 id="currentUserName">User</h3>
+              <span class="online-status">● Đang hoạt động</span>
+            </div>
+          </div>
+
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm" />
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" data-tab="chats">💬 Tin nhắn</button>
+            <button class="tab" data-tab="friends">👥 Bạn bè</button>
+            <button class="tab" data-tab="requests">📬 Lời mời</button>
+          </div>
+
+          <div class="tab-content">
+            <div id="chatsTab" class="tab-panel active">
+              <div id="chatsList"></div>
+            </div>
+            <div id="friendsTab" class="tab-panel">
+              <div id="friendsList"></div>
+            </div>
+            <div id="requestsTab" class="tab-panel">
+              <div id="requestsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+          <div id="emptyChatState" class="empty-state">
+            <div class="empty-icon">💬</div>
+            <h2>Messenger</h2>
+            <p>Chọn một cuộc trò chuyện để bắt đầu</p>
+          </div>
+
+          <div id="activeChatState" class="active-chat" style="display: none">
+            <div class="chat-header">
+              <div class="chat-header-left">
+                <div class="chat-avatar" id="chatAvatar">👤</div>
+                <div class="chat-info">
+                  <h3 id="chatName">User</h3>
+                  <span class="chat-status" id="chatStatus"
+                    >Đang hoạt động</span
+                  >
+                </div>
+              </div>
+              <div class="chat-header-right">
+                <button class="icon-btn">📞</button>
+                <button class="icon-btn">📹</button>
+              </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer"></div>
+
+            <div class="chat-input-container">
+              <button class="icon-btn">🖼️</button>
+              <input type="text" id="messageInput" placeholder="Aa" />
+              <button class="icon-btn">😊</button>
+              <button class="send-btn" id="sendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- Load Scripts -->
+    <script src="data/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/friends.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
